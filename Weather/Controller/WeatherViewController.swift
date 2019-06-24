@@ -25,6 +25,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     @IBOutlet var cityLabel: UILabel!
     @IBOutlet var tempLabel: UILabel!
     @IBOutlet var weatherIcon: UIImageView!
+    @IBOutlet var nationLabel: UILabel!
     
 
     override func viewDidLoad() {
@@ -76,6 +77,10 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
             
             weatherDataModel.condition = json["weather"][0]["id"].intValue
             
+            weatherDataModel.country = json["sys"]["country"].stringValue
+            
+            
+            
             weatherDataModel.weatherIconName = weatherDataModel.updateWeatherIcon(condition: weatherDataModel.condition)
             
             
@@ -95,6 +100,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         cityLabel.text = weatherDataModel.city
         tempLabel.text = "\(weatherDataModel.temperature)°"
         weatherIcon.image = UIImage(named: weatherDataModel.weatherIconName)
+        nationLabel.text = weatherDataModel.country
     }
     
     //MARK: - Location Manager Delegate Methods
