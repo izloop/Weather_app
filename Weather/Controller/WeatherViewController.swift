@@ -48,6 +48,8 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
                 
                 let weatherJSON : JSON = JSON(response.result.value!)
                 
+                print(weatherJSON)
+                
                 self.updateWeatherData(json: weatherJSON)
                 
             } else {
@@ -146,9 +148,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
             destinationVC.delegate = self
         }
     }
-    
-    
-    
 }
 
 

@@ -34,7 +34,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="forward"/>
                                 <connections>
-                                    <segue destination="O4k-LB-N73" kind="show" id="0g4-0E-SqE"/>
+                                    <segue destination="O4k-LB-N73" kind="show" identifier="changeCityName" id="0g4-0E-SqE"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3c-Um-foc">
@@ -71,7 +71,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="back"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="RSi-a9-Rvr"/>
+                                    <action selector="backButtonPressed:" destination="O4k-LB-N73" eventType="touchUpInside" id="VZR-tq-l62"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SZ0-5J-x2J">
@@ -104,6 +104,9 @@
                                                 <color key="value" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="getWeatherPressed:" destination="O4k-LB-N73" eventType="touchUpInside" id="neP-UM-Enn"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </view>
@@ -111,6 +114,9 @@
                         <color key="backgroundColor" red="0.94509803920000002" green="0.76862745099999996" blue="0.058823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="mwb-T5-Iee"/>
                     </view>
+                    <connections>
+                        <outlet property="changeCityTextField" destination="TmK-cg-cYu" id="ZPe-M3-kbu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3CG-CK-96x" sceneMemberID="firstResponder"/>
             </objects>

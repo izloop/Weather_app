@@ -28,10 +28,10 @@ class WeatherDataModel {
             return "thunderstorm"
             
         case 301...500 :
-            return "rain_storm"
+            return "rain"
             
         case 501...600 :
-            return "shower3"
+            return "rainstorm"
             
         case 601...700 :
             return "snow2"
@@ -43,19 +43,19 @@ class WeatherDataModel {
             return "thunderstorm"
             
         case 800 :
-            return "suncloud"
+            return "sun"
             
         case 801...804 :
-            return "cloudy2"
+            return "sun3"
             
         case 900...903, 905...1000  :
-            return "tstorm3"
+            return "sunstorm"
             
         case 903 :
             return "snow"
             
         case 904 :
-            return "sun"
+            return "suncloud"
             
         default :
             return "na"
