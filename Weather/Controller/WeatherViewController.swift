@@ -40,9 +40,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     //MARK: - Networking
     /***************************************************************/
     
-    //Write the getWeatherData method here:
-    
-    
     func getWeatherData(url: String, parameters: [String : String]) {
         Alamofire.request(url, method: .get, parameters: parameters).responseJSON {
             response in
@@ -66,9 +63,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     //MARK: - JSON Parsing
     /***************************************************************/
     
-    
-    //Write the updateWeatherData method here:
-    
     func updateWeatherData(json: JSON) {
         
         if let tempResult = json["main"]["temp"].double {
@@ -91,13 +85,8 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     }
     
     
-    
     //MARK: - UI Updates
     /***************************************************************/
-    
-    
-    //Write the updateUIWithWeatherData method here:
-    
     
     func updateUIWithWeatherData() {
         
@@ -106,13 +95,10 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         weatherIcon.image = UIImage(named: weatherDataModel.weatherIconName)
     }
     
-    
-    
     //MARK: - Location Manager Delegate Methods
     /***************************************************************/
     
     
-    //Write the didUpdateLocations method here:
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[locations.count - 1]
         if location.horizontalAccuracy > 0 {
@@ -130,7 +116,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     }
     
     
-    //Write the didFailWithError method here:
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
         cityLabel.text = "Location Unavailable"
@@ -143,7 +128,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     /***************************************************************/
     
     
-    //Write the userEnteredANewCityName Delegate method here:
     func userEnteredANewCityName(city: String) {
         
         
@@ -153,7 +137,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     }
     
     
-    //Write the PrepareForSegue Method here
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "changeCityName" {
