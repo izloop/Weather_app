@@ -49,6 +49,9 @@ protocol ChangeCityDelegate {
 
 class ChangeCityViewController: UIViewController {
     
+    @IBOutlet var weatherButton: UIButton!
+    @IBOutlet var cityField: UITextField!
+    
     var delegate : ChangeCityDelegate?
     
     @IBOutlet weak var changeCityTextField: UITextField!
@@ -62,6 +65,14 @@ class ChangeCityViewController: UIViewController {
         
         self.dismiss(animated: true, completion: nil)
         
+    }
+    
+    override func viewDidLoad() {
+        super .viewDidLoad()
+        
+        view.backgroundColor = .flatLime
+        weatherButton.backgroundColor = .flatWatermelonDark
+        cityField.backgroundColor = .flatWatermelon
     }
     
     //This is the IBAction that gets called when the user taps the back button. It dismisses the ChangeCityViewController.
