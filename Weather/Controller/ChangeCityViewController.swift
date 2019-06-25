@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 @IBDesignable extension UIButton {
     
