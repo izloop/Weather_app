@@ -62,9 +62,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         }
     }
     
-    
-    
-    
     //MARK: - JSON Parsing
     /***************************************************************/
     
@@ -80,8 +77,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
             weatherDataModel.condition = json["weather"][0]["id"].intValue
             
             weatherDataModel.country = json["sys"]["country"].stringValue
-            
-            
             
             weatherDataModel.weatherIconName = weatherDataModel.updateWeatherIcon(condition: weatherDataModel.condition)
             
@@ -131,9 +126,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         cityLabel.text = "Location Unavailable"
     }
     
-    
-    
-    
     //MARK: - Change City Delegate methods
     /***************************************************************/
     
@@ -146,8 +138,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         getWeatherData(url: WEATHER_URL, parameters: params)
     }
     
-    
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "changeCityName" {
             
@@ -156,6 +147,24 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
             destinationVC.delegate = self
         }
     }
+    
+    //MARK: - Reset GPS
+    /***************************************************************/
+    
+    @IBAction func resetLocation(_ sender: UIButton) {
+        
+        let alert = UIAlertController(title: "Attention", message: "City was reset.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
+        locationManager.startUpdatingLocation()
+        
+       
+        
+    }
+    
 }
 
 
